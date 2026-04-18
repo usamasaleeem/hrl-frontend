@@ -14,7 +14,7 @@ import { AllCandidatesPage } from './components/candidates/AllCandidatesPage';
 import { ShortlistPage } from './components/candidates/ShortlistPage';
 import { InterviewSessionPage } from './components/interview/InterviewSessionPage';
 import { Toaster } from './components/ui/sonner';
-import MessageTemplates from './components/setting/messageTemplate';
+import MessageTemplates from './components/setting/MessageTemplate';
 import { SettingsLayout } from './components/SettingsLayout/SettingsLayout';
 import GeneralSettings from './components/setting/GeneralSettings';
 
