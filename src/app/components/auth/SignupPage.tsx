@@ -10,6 +10,7 @@ import { motion } from 'motion/react';
 import logo from '../../../images/logo.svg';
 
 import axios from 'axios';
+import { publicApi } from '../../../services/api';
 export function SignupPage() {
   const navigate = useNavigate();
   const setUser = useStore((state) => state.setUser);
@@ -30,8 +31,8 @@ export function SignupPage() {
       setLoading(true);
       setError('');
 
-      const { data } = await axios.post(
-        'http://localhost:3000/api/auth/register', // updated port + route
+      const { data } = await publicApi.post(
+        `/auth/register`, // updated port + route
         {
           name,
           email,
@@ -69,11 +70,11 @@ export function SignupPage() {
         className="w-full max-w-md space-y-6"
       >
         <div className="text-center space-y-2">
-        <img
-           src={logo}
-           alt="Intervo AI"
-           className="mx-auto h-10 w-auto object-contain transition-all duration-300"
-         />  <p className="text-gray-600">Create your account</p>
+          <img
+            src={logo}
+            alt="Intervo AI"
+            className="mx-auto h-10 w-auto object-contain transition-all duration-300"
+          />  <p className="text-gray-600">Create your account</p>
         </div>
 
         <Card className="border-gray-200 shadow-lg">
@@ -126,8 +127,8 @@ export function SignupPage() {
                     type="button"
                     onClick={() => setSelectedRole('employer')}
                     className={`p-4 border-2 rounded-lg transition-all ${selectedRole === 'employer'
-                        ? 'border-black bg-gray-50'
-                        : 'border-gray-200 hover:border-gray-300'
+                      ? 'border-black bg-gray-50'
+                      : 'border-gray-200 hover:border-gray-300'
                       }`}
                   >
                     <BriefcaseIcon className="mx-auto mb-2 h-6 w-6" />
@@ -137,8 +138,8 @@ export function SignupPage() {
                     type="button"
                     onClick={() => setSelectedRole('candidate')}
                     className={`p-4 border-2 rounded-lg transition-all ${selectedRole === 'candidate'
-                        ? 'border-black bg-gray-50'
-                        : 'border-gray-200 hover:border-gray-300'
+                      ? 'border-black bg-gray-50'
+                      : 'border-gray-200 hover:border-gray-300'
                       }`}
                   >
                     <UserIcon className="mx-auto mb-2 h-6 w-6" />

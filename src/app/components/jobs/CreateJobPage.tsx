@@ -16,6 +16,7 @@ import {
 import { Badge } from '../ui/badge';
 import { X, Plus } from 'lucide-react';
 import axios from 'axios';
+import { api } from '../../../services/api';
 
 export function CreateJobPage() {
   const navigate = useNavigate();
@@ -109,7 +110,7 @@ export function CreateJobPage() {
         // ✅ CREATE FLOW
         const token = localStorage.getItem('token');
 
-        const joba = await axios.post('http://localhost:3000/api/jobs', payload, {
+        const joba = await api.post('/jobs', payload, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
